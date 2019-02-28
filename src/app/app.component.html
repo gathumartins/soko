@@ -1,21 +1,36 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
-<router-outlet></router-outlet>
+<div class="position-relative container">
+  <div class="row justify-content-center">
+    <div class="card mt-sm-3 col-md-8">
+      <div class="card-body">
+        <h3 class="mb-2">Repositories Search</h3>
+        <div class="form-group">
+          <label for="" class="form-label text-success" *ngIf="search"><strong>Search For: </strong>{{search}}</label>
+          <div class="input-group mt-2">
+            <input type="text" name="" id="" class="form-control searchInput" [(ngModel)]="search" (keyup)="searchRepos($event)"
+              placeholder="Type here">
+            <div class="input-group-append">
+              <span class="input-group-text bg-success text-light searchBtn" (click)="searchRepos($event)">Search</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="left:0; z-index:10;">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="list-group" *ngIf="results">
+            <a [href]="item.html_url" target="_blank" class="p-3 list-group-item list-group-item-action flex-column align-items-start" *ngFor="let item of results">
+              <div class="media">
+                <img src="{{item.owner.avatar_url}}" alt="" class="mr-3 rounded align-self-center img-fluid" style="width: 70px;">
+                <div class="media-body align-self-center">
+                  <h5 class="m-0">{{item.name}} -> {{item.full_name}}</h5>
+                  {{item.description}}
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- Positioning div -->

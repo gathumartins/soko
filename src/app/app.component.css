@@ -1,0 +1,19 @@
+.list-group-item:first-child{
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: 0px;
+}
+.searchInput{
+    border:1px solid #000;
+}
+.searchBtn{
+    border: 1px solid #28a745;
+    cursor: pointer;
+}
+.searchInput:focus{
+    border: 1px solid #28a745; 
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+}
